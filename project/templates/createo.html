@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Option
+{% endblock %}
+
+{% block main %}
+
+    <form action="/createo" method= "post">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Enter Option Description</label>
+            <textarea name="option" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+        </div>
+        <input type="hidden" name="questionId" value="{{ questionid }}"/>
+        <input type="hidden" name="survId" value="{{ surveyid }}"/>
+        <input type="hidden" name="button" id="bqp">
+        <button class="btn btn-primary" id ="addo" type="submit">Add Option</button>
+        <button class="btn btn-primary" id ="addq" type="submit">Add Question</button>
+        <button class="btn btn-primary" id ="create" type="submit">Finish Survey</button>
+        <br><br>
+        <button class="btn btn-primary" id ="cancel" type="submit">Cancel</button>
+
+
+        <script>
+            document.getElementById("addo").addEventListener("click", myFunction);
+            document.getElementById("addq").addEventListener("click", myFunction);
+            document.getElementById("create").addEventListener("click", myFunction);
+            document.getElementById("cancel").addEventListener("click", myFunction);
+
+        function myFunction() {
+          document.getElementById("bqp").value = this.id
+                }
+        </script>
+    </form>
+{% endblock %}

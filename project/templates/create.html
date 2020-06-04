@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create
+{% endblock %}
+
+{% block main %}
+
+    <form action="/create" method= "post">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Enter Topic</label>
+            <textarea name="topic" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+        </div>
+        <input type="hidden" name="button" id="bqp">
+        <button class="btn btn-primary" name ="create" type="submit">Create</button>
+        <button class="btn btn-primary" name ="cancel" type="submit">Cancel</button>
+
+        <script>
+            document.getElementById("create").addEventListener("click", myFunction);
+            document.getElementById("cancel").addEventListener("click", myFunction);
+
+        function myFunction() {
+          document.getElementById("bqp").value = this.id
+                }
+        </script>
+    </form>
+{% endblock %}

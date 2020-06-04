@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Take Survey
+{% endblock %}
+
+{% block main %}
+
+      {% for user in users %}
+            <p>
+                Name: {{user.name}} <br>
+                Username: {{user.username}} <br>
+                Surveys Created: {{user.count}}<br>
+            </p>
+
+      {% endfor %}
+      <h3 style="font-family: garamond;">Created Surveys </h3>
+      {% for search in searches %}
+          <form action="/acc" method="post">
+                <div class="list-group">
+                      <a href="#" class="list-group-item">{{search.topic}}</a>
+                  </div>
+          <br>
+                <input type="hidden" name="survId" value="{{ search.id }}"/>
+                <button class="btn btn-sm btn-primary" type="submit">View</button>
+          </form>
+          <br>
+      {% endfor %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Take Survey
+{% endblock %}
+
+{% block main %}
+
+
+      {% for survey in surveys %}
+      <h2 style="color: #FFCC99; font-family: serif; text-align: center;">{{survey.topic}}</h2> <hr> <br>
+
+      {% for question in questions %}
+
+          <h3 style="font-family: garamond;">Q. {{question.question}}</h3>
+          <br>
+
+                {% for option in options[question.id] %}
+
+                    <input type="radio"  name="{{question.id}}" value="{{option.id}}"> {{option.option}} ({{option.choicevalue}}/{{survey.views}})<br>
+
+                {% endfor %}
+                <br>
+
+        {% endfor %}
+        <br>
+
+        {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Question
+{% endblock %}
+
+{% block main %}
+
+    <form action="/createq" method= "post">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Enter Question</label>
+            <textarea name="question" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+            <label for="exampleFormControlTextarea1">Enter Option Description</label>
+            <textarea name="op1" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+            <label for="exampleFormControlTextarea1">Enter Option Description</label>
+            <textarea name="op2" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+        </div>
+        <input type="hidden" name="survId" value="{{ surveyid }}"/>
+        <input type="hidden" name="button" id="bqp">
+        <button class="btn btn-primary" id ="addo" type="submit">Add Option</button>
+        <button class="btn btn-primary" id ="addq" type="submit">Add Question</button>
+        <button class="btn btn-primary" id ="finish" type="submit">Create</button> <br> <br>
+        <button class="btn btn-primary" id ="end" type="submit">Cancel</button>
+
+        <script>
+            document.getElementById("addo").addEventListener("click", myFunction);
+            document.getElementById("addq").addEventListener("click", myFunction);
+            document.getElementById("finish").addEventListener("click", myFunction);
+            document.getElementById("end").addEventListener("click", myFunction);
+
+        function myFunction() {
+          document.getElementById("bqp").value = this.id
+                }
+        </script>
+    </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Take Survey
+{% endblock %}
+
+{% block main %}
+
+      {% for search in searches %}
+          <form action="/" method="post">
+                <div class="list-group">
+                      <a href="#" class="list-group-item">{{search.topic}}</a>
+                  </div>
+          <br>
+                <input type="hidden" name="survId" value="{{ search.id }}"/>
+                <button class="btn btn-sm btn-primary" type="submit">Take</button>
+          </form>
+          <br>
+      {% endfor %}
+{% endblock %}

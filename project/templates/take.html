@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Take Survey
+{% endblock %}
+
+{% block main %}
+
+
+      {% for survey in surveys %}
+      <h2 style="color: #FFCC99; font-family: serif; text-align: center;">{{survey.topic}}</h2> <hr> <br>
+
+      <form action="/take" method="post" >
+
+      {% for question in questions %}
+
+          <h3 style="font-family: garamond;">Q. {{question.question}}</h3>
+          <br>
+
+                {% for option in options[question.id] %}
+
+                    <input type="radio"  name="{{question.id}}" value="{{option.id}}"> {{option.option}}<br>
+
+                {% endfor %}
+                <br>
+
+        {% endfor %}
+        <br>
+
+            <input type="hidden" name="survId" value="{{survey.id}}">
+            <input type="hidden" name="button" id="bqp">
+            <button class="btn btn-primary"  id="continue" type="submit">Continue</button>
+            <button class="btn btn-primary"  id ="cancel" type="submit">Cancel</button>
+             <script>
+                document.getElementById("continue").addEventListener("click", buttonFind);
+                document.getElementById("cancel").addEventListener("click", buttonFind);
+
+            function buttonFind() {
+                document.getElementById("bqp").value = this.id
+            }
+            </script>
+            <br>
+        </form>
+
+
+        {% endfor %}
+
+{% endblock %}
