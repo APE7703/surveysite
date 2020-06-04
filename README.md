@@ -1,2 +1,2 @@
 # surveysite
-A free survey taking/creation website that assumes total anonymity.
+A free survey taking/creation website that allows users total anonymity.
